@@ -1,0 +1,42 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+@import '../helpers/functions';
+
+/**
+ * Example styling rules of styling a module and the translations of how @include media queries translates and other functions
+ */
+//@include respond-to(from-lg) {}
+//@media screen and (min-width: 992px) {}
+//
+//@include respond-to(up-to-lg) {}
+//@media screen and (max-width: 991px) {}
+//
+//
+//@include transform(scale(1));
+//transform:          scale(1);
+//-ms-transform:      scale(1);
+//-moz-transform:     scale(1);
+//-webkit-transform:  scale(1);
+//-o-transform:       scale(1);
+//
+//section.highlighted-news {
+//	background: color(primary);
+//
+//	h2 {
+//		font-family: $font-heading;
+//	}
+//
+//	p {
+//		font-family: $font-body;
+//	}
+//
+//	a {
+//		color: color(primary);
+//		transition: color $duration ease-in-out;
+//
+//		&:hover,
+//		&:focus {
+//			color: color(secondary);
+//		}
+//	}
+//}

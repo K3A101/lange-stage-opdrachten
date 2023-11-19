@@ -1,0 +1,72 @@
+h1 {
+    font-size: $font-size-h1;
+    position: relative;
+    margin: 0 0 4rem 0;
+}
+
+h1::before {
+    @include text-underline;
+    bottom: -1rem;
+    width: 6.5rem;
+    background: color(text);
+}
+
+h2 {
+    font-size: $font-size-h2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: $line-height;
+}
+
+h3{
+  font-family: $font-body;
+}
+
+h1,h2{
+    font-family: $font-heading;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+    font-weight: normal;
+}
+a {
+    color: color(link);
+    @include transition(color $duration ease, background-color $duration ease);
+    
+    &:hover,
+    &:focus {
+        color: color(primary-variation-1);
+        cursor: pointer;
+    }
+}
+
+.button,
+button.button {
+    background:rgba(0, 0, 0, 0);
+    border: 0;
+    color: color(link);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 0.5rem 1.5rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 100%;
+
+    @include respond-to(from-md) {
+        width: auto;
+    }
+}
+
+p,
+main ul,
+main ol,
+footer ul,
+footer ol {
+    font-size: 1.6rem;
+    line-height: $line-height;
+}

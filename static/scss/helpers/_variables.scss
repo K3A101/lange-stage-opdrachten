@@ -1,0 +1,39 @@
+// Colors
+$colors: (
+        primary:        #60C5A9,
+        primary-variation-1: #568676,
+        background: #fff,
+        background-dark: #000,
+        text:           #000000,
+        text-light:     #fff,
+        link:           #000,
+        link-hover:     #000,
+        border:         #ccc,
+        border-dark: #000,
+        disabled:       #e5e5e5,
+        box-shadow:  rgba(0, 0, 0, 0.33),
+        theme-color-variation-1: #c37d3f,
+        theme-color-variation-2: #944b26,
+
+);
+
+
+// Font settings
+$font-heading: 'DM Serif Display', serif;
+$font-body: 'Poppins', sans-serif;
+
+$border-radius: 0.4rem;
+
+$font-size-h1: 4rem;
+$font-size-h2: 2.1rem;
+$line-height: normal;
+
+// Bootstrap breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1440px;
+
+// Animation settings
+$duration: .3s;

@@ -1,0 +1,328 @@
+
+html.off-canvas,
+html.off-canvas body {
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    color: color(text-light);
+    font-family: $font-body;
+    font-size: 5rem;
+}
+
+.has-submenu{
+    color: color(text-light);
+    display: block;
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1.5rem;
+    margin-right: -1.5rem;
+
+
+    .nav-toggle {
+        cursor: pointer;
+        display: inline-block;
+        height: 2rem;
+        margin-top: -.2rem;
+        padding: .8rem 0 .8rem 0;
+        position: relative;
+        vertical-align: middle;
+        width: 2rem;
+
+        span,
+        span:before,
+        span:after {
+            background: #fff;
+
+            content: '';
+            display: block;
+            height: .2rem;
+            position: absolute;
+            width: 2rem;
+            @include transition(all 300ms ease-in-out);
+        }
+
+        span:before {
+            top: -.6rem;
+
+        }
+
+        span:after {
+            top: .6rem;
+        }
+    }
+
+    &.active {
+        background: color(background-dark);
+
+        @include respond-to(from-md){
+            background: color(background);
+        }
+
+
+        ul {
+            @include box-shadow(-.9rem -.4rem 2.6rem .3rem color(box-shadow));
+            //box-shadow: -.9rem -.4rem 2.6rem .3rem color(box-shadow);
+        }
+
+
+        .nav-toggle {
+            background: color(background-dark);
+
+
+            @include respond-to(from-md){
+                background: color(background);
+            }
+
+
+            span {
+                background: rgba(0,0,0,0);
+            }
+
+            span:before,
+            span:after {
+                background: color(primary);
+                top: 0;
+            }
+
+            span:before {
+                @include transform(rotate(45deg));
+            }
+
+            span:after {
+                @include transform(rotate(-45deg));
+            }
+        }
+    }
+}
+
+
+nav {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    &.header-nav {
+        margin-top: auto;
+
+        .menu {
+
+            ul {
+                display: block;
+                font-size: 0;
+                margin: 0;
+                padding: 0;
+                text-align: right;
+
+                li {
+                    display: inline-block;
+                    list-style-type: none;
+                    position: relative;
+                    vertical-align: middle;
+
+
+                    a {
+                        color: color(text-light);
+                        display: inline-block;
+                        font-size: 1.5rem;
+                        padding: 1rem;
+                        text-transform: lowercase;
+                    }
+
+                    a:hover,
+                    a:focus {
+
+                        color: color(primary);
+                        border-color: color(primary);
+                    }
+
+                    .toggle-button {
+                        display: inline-block;
+                        font-size: 1.5rem;
+                    }
+
+                    ul {
+                        background: color(background);
+                        min-width: 100%;
+                        position: absolute;
+                        text-align: left;
+                        z-index: 200;
+
+                        /** Position off-screen i.o. display: none - for screenreaders */
+                        left:-9999px;
+                        top:-9999px;
+                        width:0.1rem;
+                        height:0.1rem;
+                        overflow:hidden;
+
+                        &.close {
+                            display: none;
+                        }
+
+                        li {
+                            display: block;
+                            border: 0;
+                            text-align: left;
+
+
+                            &::before {
+                                @include text-underline;
+                                width: 3.2rem;
+                                height: 1px;
+                                background: color(primary);
+                                bottom: 0;
+                            }
+
+                            &:last-of-type{
+                                &::before{
+                                    background: rgba(0,0,0,0);
+                                }
+                            }
+
+
+                            &.current-menu-item {
+                                background-color: color(primary);
+                            }
+
+                            a {
+                                color: color(text);
+                                display: block;
+                                font-size: 1.6rem;
+                                white-space: nowrap;
+                                padding: 1.2rem 12rem 1.2rem 1.2rem;
+                                font-weight: 500;
+
+                                &:hover,
+                                &:focus {
+
+                                    color: color(primary);
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+
+
+                    @include respond-to(from-md) {
+
+                        .open {
+                            top: 100%;
+                            right: 0;
+                            left: auto;
+                            width:auto;
+                            height:auto;
+                            z-index: -1;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    &.off-canvas-nav {
+        pointer-events: none;
+        @include respond-to(from-md) {
+            display: none;
+
+        }
+
+        .mobile-header {
+            background: color(background-dark);
+            align-items: center;
+            padding: 1rem 0;
+            transform: translateY(-20%);
+        }
+
+        .has-submenu {
+            background:rgba(0,0,0,0);
+            padding: 1.5rem;
+            position: fixed;
+            top: 7%;
+            right: 0;
+            left: 0;
+            text-align: right;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            opacity: 0;
+            @include transition(transform 0.3s, opacity 0.3s, visibility 0.3s);
+
+            .nav-toggle {
+                display: inline-block;
+                text-align: right;
+                margin: 1rem;
+            }
+
+
+            ul {
+                margin: 0;
+                padding:  1.5rem 0;
+                display: none;
+                visibility: hidden;
+
+
+                li {
+                    border-top: 0.1rem solid #000;
+                    display: block;
+                    list-style-type: none;
+                    position: relative;
+
+                    &:first-of-type {
+                        border-top: 0;
+                    }
+
+                    .toggle-button {
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        width: 3rem;
+                    }
+
+                    a {
+                        color: color(text-light);
+                        display: inline-block;
+                        font-size: 1.5rem;
+                        padding: 1rem;
+                        text-transform: lowercase;
+
+
+                    }
+                }
+            }
+
+            &.active {
+                 ul {
+                     display: block;
+                 }
+            }
+        }
+    }
+
+    &.active {
+        .has-submenu {
+            opacity: 1;
+            background: color(background-dark);
+
+            ul {
+                visibility: visible;
+                display: block;
+                @include transform(translateY(0));
+                @include animation(slide-right  $duration both);
+            }
+        }
+    }
+}
+
+// Navigation content slide left when the nav menu is opened.
+@keyframes slide-right {
+0%{
+    @include transform(translateX(100%));
+}
+
+    100%{
+        @include transform(translateX(0));
+    }
+}

@@ -1,0 +1,306 @@
+
+html {
+    font-size: 62.5%; // Set default px to 10px, so 16px is 1.6rem
+}
+
+html, body {
+    font-family: $font-body;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    height: auto; // Fixed sticky header#top
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-inline-size: 100%;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    img[src$=".svg"] {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+
+    &.skip-link:focus {
+        clip: auto;
+        clip-path: none;
+        height: auto;
+        width: auto;
+        left: .5rem;
+        top: .5rem;
+        color: color(primary);
+        border: 1px solid color(primary);
+        padding: 1rem;
+    }
+}
+
+/**
+ * Bootstrap changes
+ */
+
+@include respond-to(only-sm) {
+
+    .container, .container-sm {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        max-width: none;
+    }
+}
+
+@include respond-to(only-md) {
+
+    .container, .container-md {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        max-width: none;
+    }
+}
+
+@include respond-to(only-lg) {
+
+    .container, .container-lg {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        max-width: none;
+    }
+}
+
+/**
+ * Header
+ */
+header#top {
+    display: block;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 150; // higher z-index than nav.off-canvas-nav .menu
+    background: color(background-dark);
+    padding: 1.3rem 0;
+
+    .row {
+        align-items: center;
+    }
+
+    .menu-items {
+        display: none;
+
+        @include respond-to(from-md) {
+            display: inline-block;
+        }
+
+        a {
+            padding:  2rem;
+
+            &:nth-child(2) { // 'mijn frankrijk' with heart icon
+               padding: 2rem 2rem 2rem .4rem;
+            }
+        }
+    }
+}
+
+/**
+ * Main
+ */
+
+main {
+    flex: 1 0 auto;
+    min-height: .1rem; // This fixes the huge white space on IE11
+}
+
+.wp-block-g2p-wrapper,
+.wp-block-g2p-wrapper-inner {
+
+    &.no-padding-top {
+        padding-top: 0 !important;
+    }
+
+    &.no-padding-bottom {
+        padding-bottom: 0 !important;
+    }
+
+    @include respond-to(up-to-sm) {
+        &.xs-no-padding-top { padding-top: 0 !important; }
+        &.xs-no-padding-bottom { padding-bottom: 0 !important; }
+    }
+
+    @include respond-to(only-md) {
+        &.md-no-padding-top { padding-top: 0 !important; }
+        &.md-no-padding-bottom { padding-bottom: 0 !important; }
+    }
+
+    @include respond-to(only-lg) {
+        &.lg-no-padding-top { padding-top: 0 !important; }
+        &.lg-no-padding-bottom { padding-bottom: 0 !important; }
+    }
+
+    @include respond-to(only-xl) {
+        &.xl-no-padding-top { padding-top: 0 !important; }
+        &.xl-no-padding-bottom { padding-bottom: 0 !important; }
+    }
+
+    @include respond-to(only-xxl) {
+        &.xxl-no-padding-top { padding-top: 0 !important; }
+        &.xxl-no-padding-bottom { padding-bottom: 0 !important; }
+    }
+
+    > .container > .row > .col-12 > :first-child {
+        margin-top: 0;
+    }
+
+    > .container > .row > .col-12 > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.wp-block-g2p-wrapper {
+
+    @include respond-to(from-sm) {
+        padding: 2.5rem 0;
+        margin: 0 auto;
+        max-width: 1140px;
+
+    }
+
+    .wp-block-columns {
+
+        @include respond-to(up-to-md) {
+            flex-wrap: wrap;
+        }
+
+        .wp-block-column {
+
+            @include respond-to(up-to-md) {
+                flex-basis: 100% !important;
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.wp-block-g2p-wrapper-inner {
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Footer
+ */
+
+footer#bottom {
+    background: color(background-dark);
+    flex-shrink: 0;
+    width: 100%;
+    color: color(text-light);
+    margin-top:7.5rem;
+    padding: 1rem 0;
+
+    a {
+        display: inline-block;
+        color: color(text-light);
+        padding: 1rem 0;
+        font-size: 1.4rem;
+    }
+
+    i {
+       padding-right: 1rem;
+    }
+
+    nav{
+        &.social-media,
+        &.footer-links {
+
+            ul{
+                padding: 0;
+                @include columns(2);
+
+                @include respond-to(from-md) {
+                    padding: 0 0 0 2rem;
+
+                    @include columns(1);
+
+                    li{
+                        width: fit-content;
+                    }
+
+                    @include respond-to(from-lg) {
+                        @include columns(2);
+                        padding: 0 0 0 4rem ;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-content {
+
+        h2 {
+            font-family: $font-body;
+            font-weight: 500;
+            font-size: 2.3rem;
+            margin-bottom: 0;
+        }
+
+        .tags {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-top:  .5rem;
+        }
+
+        .footer-summary {
+            font-weight: 400;
+            line-height: $line-height;
+            font-size: 1.4rem;
+        }
+    }
+
+    .copyright {
+        ul {
+
+            padding: 0 0 1.6rem 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 1px solid color(border);
+
+            @include respond-to(from-md) {
+                flex-direction: row;
+            }
+
+            a {
+                opacity: 80%;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

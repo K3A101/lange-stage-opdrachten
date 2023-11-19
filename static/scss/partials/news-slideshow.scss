@@ -1,0 +1,84 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+@import '../helpers/functions';
+
+.highlights-slider {
+    padding: 2.5rem 0;
+    position: relative;
+    margin-bottom:2rem;
+
+    .slider-size {
+        padding: 2rem 0 5rem 0;
+        position: relative;
+
+        .swiper-slide {
+            width: 50%;
+            display: flex;
+            align-items: stretch;
+
+            &.wider {
+                width: 100%;
+            }
+
+            @include respond-to(from-md) {
+                width: 25%;
+
+                &.wider{
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+.highlights-slider {
+    .post {
+        width: 100%;
+
+        a {
+            display: block;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            h2 {
+                width: 0;
+                min-width: 100%;
+
+                &::before {
+                    @include text-underline;
+                    width: 8.2rem;
+                    background: color(primary);
+                }
+            }
+        }
+    }
+
+    //Pagination and Navigation
+    .swiper-button-prev {
+        left: -5%;
+    }
+
+    .swiper-button-next {
+        right: -5%;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        color: color(border);
+    }
+
+    .swiper-pagination-bullet-active {
+        background: color(primary);
+    }
+}
+
+
+// When the swiperjs is not working
+.swiper-deactivated {
+    gap: 3rem;
+}
+
