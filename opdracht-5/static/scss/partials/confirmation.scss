@@ -1,0 +1,32 @@
+@import '../helpers/variables';
+@import '../helpers/mixins';
+@import '../helpers/functions';
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation {
+    background: color(background);
+    padding: 3rem;
+    min-height: 35rem;
+    width: 40rem;
+    box-shadow: $box-shadow;
+    @include border-radius(2rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    article {
+        text-align: center;
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+}

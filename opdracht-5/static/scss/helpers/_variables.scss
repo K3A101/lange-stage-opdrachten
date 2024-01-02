@@ -1,0 +1,35 @@
+// Colors
+$colors: (
+        primary: #38528b,
+        hover: #5a75bf,
+        background: #fff,
+        background-variation-1: #e9f9ff,
+        text:           #000,
+        text-light:     #fff,
+        border:         #ccc,
+        disabled:       #e5e5e5,
+        invalid:        #e56a5e,
+        valid:          #59a267,
+        progres: #f1c283,
+);
+
+// Font settings
+$font-heading: 'DM Serif Display', serif;
+$font-body: 'Poppins', sans-serif;
+$heading-1-size: 3.5rem;
+$heading-2-size: 2rem;
+
+// Bootstrap breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1440px;
+
+// Animation settings
+$duration: .3s;
+
+//Box-shadow
+$box-shadow: 2rem 2rem 20rem 0 #ade4ff;
+
+//border-radius

@@ -1,0 +1,45 @@
+h1 { 
+font-size: $heading-1-size;
+    span {
+        color: color('primary');
+    }
+}
+
+h2 {
+    padding: 1rem;
+    background: color(background-variation-1);
+    font-size: $heading-2-size;
+    word-wrap: break-word;
+}
+
+a {
+    color: color(text-light);
+    background: color(primary);
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    width: auto;
+    min-width: 25rem;
+    @include border-radius(.5rem);
+
+    @include transition(color $duration ease, background-color $duration ease);
+    
+    &:hover,
+    &:focus {
+        background: color(hover);
+    }
+}
+
+
+.hide {
+    display: none;
+}
+p,
+main ul,
+main ol,
+footer ul,
+footer ol {
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+

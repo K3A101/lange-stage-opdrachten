@@ -1,0 +1,136 @@
+form {
+    background: color(background);
+    padding: 3rem;
+    @include border-radius(2rem);
+    box-shadow: $box-shadow;
+    width: 50rem;
+    position: relative;
+
+    fieldset {
+        position: relative;
+
+        div {
+            position: relative;
+        }
+
+        .error-icon,
+        .success-icon {
+            position: absolute;
+            right: 1rem;
+            top: 2.7rem;
+        }
+
+        &.email-content {
+
+            .error-icon,
+            .success-icon {
+                right: 1.7rem;
+                top: 3rem;
+            }
+
+        }
+    }
+}
+
+
+label {
+    font-weight: normal;
+    margin-top: 1.5rem;
+    font-size: 1.6rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+    position: relative;
+    background: #fff none;
+    border: .1rem solid color(border);
+    border-bottom: .2rem solid color(primary);
+    border-radius: .5rem;
+    color: color(text);
+    display: block;
+    font-size: 1.6rem;
+    height: 3.5rem;
+    padding: .5rem 1rem;
+    vertical-align: middle;
+    width: 100%;
+}
+
+input {
+    position: relative;
+    &:disabled {
+        background: color(disabled);
+        cursor: default;
+    }
+
+    &::placeholder {
+        font-size: 1.2rem;
+    }
+
+    &:required:valid {
+        border-bottom: .2rem solid color(valid);
+    }
+
+    &:valid {
+        border-bottom: .2rem solid color(valid);
+    }
+}
+
+
+.input {
+    &.typing {
+        background: color(background-variation-1);
+    }
+}
+
+textarea {
+    height: 12.5rem;
+    max-width: 100%;
+    min-height: 12.5rem;
+
+    &:required:valid {
+        border-bottom: .2rem solid color(valid);
+    }
+}
+
+button[type="submit"],
+input[type="submit"] {
+    appearance: none;
+    background: color(primary);
+    border-radius: .5rem;
+    color: color(text-light);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin: 1rem 0 0 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: none;
+    width: auto;
+    min-width: 28rem;
+    @include transition(color $duration ease, background-color $duration ease);
+
+    &:hover {
+        background: color(hover);
+    }
+}
+
+.form-container .row {
+    margin: 5rem;
+}
+
+.error {
+    margin-top: 0;
+    padding: .5rem;
+    background: color(invalid);
+    color: color(text-light);
+    border-radius: .5rem;
+    font-size: 1.4rem;
+}
+
