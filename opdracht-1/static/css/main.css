@@ -1,0 +1,297 @@
+/*//Filson W01 Medium*/
+@import url(fonts.css);
+
+:root {
+    --heading-1-size: 25px;
+    --fonts-for-headings: 'FilsonPro bold', sans-serif;
+    --fonts-for-subheadings: 'FilsonPro', sans-serif;
+    --fonts-for-navigation-menu: 'FilsonPro', sans-serif;
+    --fonts-for-paragraph: 'Segoe UI', sans-serif;
+    --primary-background-color: #ffffff;
+    --primary-text-color: #3a4147;
+    --secondary-text-color: #ffffff;
+    --secondary-accent-color: #307be6;
+    --border-bottom-color: #d9d9d9;
+    --tertiary-accent-color: #ff9031;
+    --primary-link-hover-color: rgb(254, 205, 165);
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    color: #222;
+    font-size: 62.5%;
+    line-height: 1.4;
+}
+
+h1 {
+    font-family: var(--fonts-for-headings);
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: var(--fonts-for-subheadings);
+    font-weight: 700;
+}
+
+p {
+    font-family: var(--fonts-for-paragraph);
+    font-size: 2.1rem;
+    font-weight: 500;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+main, header {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+/******* NAVIGATION MENU ********/
+header {
+    position: relative;
+    background: var(--primary-background-color);
+}
+
+header li {
+    font-family: var(--fonts-for-navigation-menu);
+}
+
+header li:nth-last-of-type(2) a {
+    font-family: "Segoe UI", sans-serif;
+    padding: 1rem 1.3rem;
+    font-weight: 400;
+}
+header > a {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 2rem;
+    gap: 1em;
+    align-items: center;
+}
+
+nav a {
+    display: inline-block;
+    padding: 2rem 1rem;
+    color: var(--primary-text-color);
+    font-family: var(--fonts-for-navigation-menu);
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: all .3s ;
+}
+
+.link-active-state {
+    color: var(--secondary-accent-color)
+}
+.cta-button {
+    border-radius: 4rem;
+    padding: .5rem;
+    font-weight: 700;
+}
+
+.cta-button img {
+    margin: 0 0 0 .5rem;
+}
+
+.cta-button.primary {
+    background: var(--tertiary-accent-color);
+    color: var(--primary-background-color);
+    padding: 1rem 2rem;
+}
+
+.cta-button.primary:hover{
+    background: var(--primary-link-hover-color);
+}
+
+
+/******* HERO ********/
+.hero {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 1%,
+    rgba(0, 0, 0, 0.4) 51%,
+    rgba(0, 0, 0, 0.65) 100%) 10% 45%,
+    no-repeat;
+    padding: 5em;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 12vh 40rem;
+    position: relative;
+}
+
+.hero img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1,
+.hero p {
+    color: var(--secondary-text-color);
+}
+
+.hero-side-btn {
+    position: fixed;
+    right: -3rem;
+    top: 45rem;
+    transform: rotate(-90deg);
+    padding: 1.6rem;
+    border-radius: 1rem 1rem 0 0;
+    border: none;
+    background: var(--primary-text-color);
+}
+
+.hero-side-btn  span {
+    font-size: 1.4rem;
+    font-family: var(--fonts-for-navigation-menu);
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+}
+
+/******* Breadcrumbs *********/
+nav.breadcrumbs {
+    padding: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+nav.breadcrumbs a {
+    padding: 0;
+    font-size: 1.4rem;
+    display: inline-block;
+    font-family: var(--fonts-for-paragraph);
+    font-weight: 400;
+}
+
+nav.breadcrumbs a + a:before {
+    padding: 0.2rem;
+    color: #000;
+    content: "/";
+}
+
+
+/******** MAIN CONTENT *********/
+
+main .two-columns-grid-main-content {
+    display: grid;
+   grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    justify-content: start;
+}
+
+/******** TOPICS ********/
+main .topics  li:first-of-type a{
+    font-family: var(--fonts-for-headings);
+}
+
+main .topics li a {
+    font-family: var(--fonts-for-subheadings);
+    font-size: 2.5rem;
+}
+
+
+main .topics li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    background: var(--primary-background-color);
+    border-bottom: 1px solid var(--border-bottom-color);
+    padding: 0 8rem;
+    height: 9rem;
+    gap: 2rem;
+}
+
+main .topics li > img {
+    position: absolute;
+    right: 0;
+}
+
+main .topics li i {
+    display: flex;
+    align-items: center;
+}
+
+/***** TOPIC DETAILS *******/
+
+main .topics-detail-container {
+    margin: 2rem;
+}
+
+.topics-detail-title{
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1.5rem;
+}
+.topics-detail-title h2 {
+
+    font-size: 4rem;
+}
+details {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 4rem 1rem 1rem;
+    border-bottom: 1px solid var(--border-bottom-color);
+    position: relative;
+}
+
+details summary {
+    padding: 2rem;
+    font-family: var(--fonts-for-headings);
+    font-size: 2.1rem;
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
+}
+
+details[open] summary:before {
+    content: "-";
+}
+
+details summary:before {
+    content: "+";
+    position: absolute;
+    right: 0;
+}
+
+details p {
+    font-family: var(--fonts-for-paragraph);
+    font-size: 1.8rem;
+    margin:  1rem 0 0 0;
+    padding: 0 3rem 3rem 3rem;
+}
+
